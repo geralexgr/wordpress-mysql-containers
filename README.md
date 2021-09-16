@@ -11,3 +11,7 @@ Deploy a fully functional wordpress site with docker containers in less than one
 ## Deployment
 
 Run docker compose file `docker compose up -d`
+
+## Result
+
+You can then start your wordpress installation on `0.0.0.0:8080` or `localhost:8080`
