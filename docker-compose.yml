@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: host.docker.internal
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: YOUR_PASSWORD
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: YOUR_PASSWORD
+      MYSQL_ROOT_PASSWORD: YOUR_PASSWORD
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:
